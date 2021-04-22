@@ -1,4 +1,10 @@
 ﻿using System;
+/*Author: Sarthak Patel
+ *Date: April 21st,2021
+ *Description: Roullete Game
+ *Player all bet stored in array
+ *user all activivty stored in structure of array
+ */
 
 namespace roulette_final
 {
@@ -28,7 +34,7 @@ namespace roulette_final
 
         static void gameMode()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Green; // list of the all table at when player can place bet
             Console.WriteLine("pelase select number from the following for the bet!");
             Console.WriteLine("A : 2 to 1(upperraw)");
             Console.WriteLine("B : 2 to 1(middleraw)");
@@ -47,7 +53,7 @@ namespace roulette_final
         static void rouletteTable()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("                                    Roullet Table                                              ");
+            Console.WriteLine("\n\n\n                                        Roullet Table                                              ");
             Console.WriteLine("{0,10}", "       ------------------------------------------------------------------------------");
             Console.WriteLine("{0,10}", "       |      |    |    |    |    |    |    |     |    |    |    |    |    |        |");
             Console.WriteLine("{0,10}", "       |      | 3  | 6  | 9  | 12 | 15 | 18 | 21  | 24 | 27 | 30 | 33 | 36 | 2 to 1 |");
@@ -77,7 +83,9 @@ namespace roulette_final
             bool incorrect = false;
             do
             {
-                Console.WriteLine("=>please select on which part you want to make a bet?"); // ask player for choose any box from roulette table
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\n=>please select on which part you want to make a bet?"); // ask player to choose any box from roulette table
+                Console.ForegroundColor = ConsoleColor.White;
                 betNumber = Console.ReadLine();
                 try
                 {
@@ -96,7 +104,7 @@ namespace roulette_final
                     }
                     else
                     {
-                        Console.WriteLine("you type invalid input");
+                        Console.WriteLine("=>\nYou typed invalid input !!");
                         incorrect = true;
                     }
                 }
@@ -110,21 +118,29 @@ namespace roulette_final
             bool incorrect = false;
             do
             {
-                Console.WriteLine("=>how many $ you want to put on selected place"); //ask plaer to put chips on choosen box of roulette table
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\n=>how many $ you want to put on selected place?"); //ask plaer to put chips on choosen box of roulette table
+                Console.ForegroundColor = ConsoleColor.White;
                 betAmount = int.Parse(Console.ReadLine());
                 if (betAmount != 0 && betAmount <= remainingBalance)
                 {
-                    Console.WriteLine("you put " + betAmount + " on " + betNumber);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n=>You put " + betAmount + " on " + betNumber); // player put this money on this place
+                    Console.ForegroundColor = ConsoleColor.White;
                     incorrect = false;
                 }
                 else if (betAmount > remainingBalance)
                 {
-                    Console.WriteLine("=>sorry! you dont have enough money, your remaining balance is: $" + remainingBalance); //if player wants to more than 500$
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n=>sorry! you dont have enough money, your remaining balance is: $" + remainingBalance); //if player wants to more than 500$
+                    Console.ForegroundColor = ConsoleColor.White;
                     incorrect = true;
                 }
                 else
                 {
-                    Console.WriteLine("you type invalid input");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n=>You type invalid input"); // if player input invalid
+                    Console.ForegroundColor = ConsoleColor.White;
                     incorrect = true;
                 }
             } while (incorrect == true);
@@ -237,7 +253,7 @@ namespace roulette_final
         }
         static bool checkFirstRawNumbers(int randomNumberRoullete)
         {
-            int[] firstRaw = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 };
+            int[] firstRaw = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 }; // first raw numbers
             for (int i = 0; i < firstRaw.Length; i++)
             {
                 if (firstRaw[i] == randomNumberRoullete)
@@ -249,7 +265,7 @@ namespace roulette_final
         }
         static bool checkSecondRawNumbers(int randomNumberRoullete)
         {
-            int[] secondRaw = { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 };
+            int[] secondRaw = { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 }; // second raw numbers
             for (int i = 0; i < secondRaw.Length; i++)
             {
                 if (secondRaw[i] == randomNumberRoullete)
@@ -261,7 +277,7 @@ namespace roulette_final
         }
         static bool checkThirdRawNumbers(int randomNumberRoullete)
         {
-            int[] thirdRaw = { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 };
+            int[] thirdRaw = { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 }; //third raw numbers
             for (int i = 0; i < thirdRaw.Length; i++)
             {
                 if (thirdRaw[i] == randomNumberRoullete)
@@ -313,7 +329,7 @@ namespace roulette_final
         }
         static bool checkRedNumbers(int randomNumberRoullete)
         {
-            int[] Red = { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
+            int[] Red = { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 }; //red numbers
             for (int i = 0; i < Red.Length; i++)
             {
                 if (Red[i] == randomNumberRoullete)
@@ -325,7 +341,7 @@ namespace roulette_final
         }
         static bool checkBlueNumbers(int randomNumberRoullete)
         {
-            int[] Black = { 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35 };
+            int[] Black = { 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35 }; //blue numbers
             for (int i = 0; i < Black.Length; i++)
             {
                 if (Black[i] == randomNumberRoullete)
@@ -449,7 +465,9 @@ namespace roulette_final
                     {
                         selectionofBet[betNumberIndex].amount = askBetAmount(playerBet, balance);
                         balance = balance - selectionofBet[betNumberIndex].amount;
-                        Console.WriteLine("Your remaining balance is :" + balance + " !!! \n");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\n=>Your remaining balance is :" + balance + " !!! \n"); //remaining balance from 500
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     betNumberIndex++;
 
@@ -460,7 +478,9 @@ namespace roulette_final
                         {
                             break;
                         }
-                        Console.WriteLine("you want to place any other bat!(yes/no)");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\n=>You want to place any other bat!(yes/no)"); //ask a question for another bet
+                        Console.ForegroundColor = ConsoleColor.White;
                         PlayerAns = Console.ReadLine();
 
                         if (PlayerAns == "yes")
@@ -475,7 +495,9 @@ namespace roulette_final
                         }
                         else
                         {
-                            Console.WriteLine("you have to select yes/no!");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("\n=>You have to select yes/no!"); // if person input is wrong
+                            Console.ForegroundColor = ConsoleColor.White;
                             moreBets = true;
                             incorrect = true;
                         }
@@ -490,39 +512,44 @@ namespace roulette_final
 
                     if (randNum == 37)
                     {
-                        printRandNum = "00";
+                        printRandNum = "00"; // if random number is 37 then it will be count 00
                     }
                     else if (randNum == 38)
                     {
-                        printRandNum = "0";
+                        printRandNum = "0"; // if random number is 38 then it will be count 00
                     }
 
-                    Console.WriteLine("\n\n*********** Number is :" + printRandNum + "*******\n\n");
-
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n\n*********** Number is :" + printRandNum + " *******\n\n"); //print random number from the random function
+                    Console.ForegroundColor = ConsoleColor.White;
                     int winAmount = entryExists(selectionofBet, betNumberIndex, randNum);
                     if (winAmount != 0)
                     {
-                        balance += winAmount;
+                        balance += winAmount; // person winning ammount add in balance
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("You Won " + winAmount + " !!!\n");
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\n=>You Won " + winAmount + " !!!\n"); //if player won bet
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
                     {
                         int totalLoss = CheckTotalBetMoney(selectionofBet, betNumberIndex);
                         balance -= totalLoss;
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("You Loose " + totalLoss + " !!! \n");
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\n=>You Loose " + totalLoss + " !!! \n"); // if player lost bet
+                        Console.ForegroundColor = ConsoleColor.White;
 
                     }
-                    Console.WriteLine("Your total balance is :" + balance + " !!! \n");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n=>Your total balance is :" + balance + " !!! \n"); // player total winning/lost amount
+                    Console.ForegroundColor = ConsoleColor.White;
                     System.Threading.Thread.Sleep(3000);
                 }
 
 
-            } while ((quit == false) || (balance >= 0));
-            Console.WriteLine("Game Over");
+            } while ((quit == false) && (balance >= 0)); // if person wants to quit
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nGAME OVER\n");
+
 
         }
     }
