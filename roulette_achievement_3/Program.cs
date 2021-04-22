@@ -253,7 +253,7 @@ namespace roulette_final
         }
         static bool checkFirstRawNumbers(int randomNumberRoullete)
         {
-            int[] firstRaw = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 }; // first raw numbers
+            int[] firstRaw = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 }; //function for check random number is in first raw numbers
             for (int i = 0; i < firstRaw.Length; i++)
             {
                 if (firstRaw[i] == randomNumberRoullete)
@@ -265,7 +265,7 @@ namespace roulette_final
         }
         static bool checkSecondRawNumbers(int randomNumberRoullete)
         {
-            int[] secondRaw = { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 }; // second raw numbers
+            int[] secondRaw = { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 }; //function for check random number is in second raw numbers
             for (int i = 0; i < secondRaw.Length; i++)
             {
                 if (secondRaw[i] == randomNumberRoullete)
@@ -277,7 +277,7 @@ namespace roulette_final
         }
         static bool checkThirdRawNumbers(int randomNumberRoullete)
         {
-            int[] thirdRaw = { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 }; //third raw numbers
+            int[] thirdRaw = { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 }; //function for check random number is in third raw numbers
             for (int i = 0; i < thirdRaw.Length; i++)
             {
                 if (thirdRaw[i] == randomNumberRoullete)
@@ -287,7 +287,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkEvenNumbers(int randomNumberRoullete)
+        static bool checkEvenNumbers(int randomNumberRoullete) // function for check random number is in the even numbers
         {
             if (0 == randomNumberRoullete % 2)
             {
@@ -295,7 +295,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkFirstTwelve(int randomNumberRoullete)
+        static bool checkFirstTwelve(int randomNumberRoullete)// function for check random number is in the firstTwelve
         {
             if (randomNumberRoullete <= 12)
             {
@@ -303,7 +303,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkSecondTwelve(int randomNumberRoullete)
+        static bool checkSecondTwelve(int randomNumberRoullete) // function for check random number is in the secondTwelve
         {
             if (randomNumberRoullete >= 12 && randomNumberRoullete <= 24)
             {
@@ -311,7 +311,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkThirdTwelve(int randomNumberRoullete)
+        static bool checkThirdTwelve(int randomNumberRoullete) // function for check random number is in the thirdTwelve
         {
             if (randomNumberRoullete >= 24 && randomNumberRoullete <= 36)
             {
@@ -319,7 +319,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkOneToEighteen(int randomNumberRoullete)
+        static bool checkOneToEighteen(int randomNumberRoullete) // function for check random number is in one to eighteen numbers
         {
             if (randomNumberRoullete >= 1 && randomNumberRoullete <= 18)
             {
@@ -327,9 +327,9 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkRedNumbers(int randomNumberRoullete)
+        static bool checkRedNumbers(int randomNumberRoullete) //function for check random is match to the red numbers
         {
-            int[] Red = { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 }; //red numbers
+            int[] Red = { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 }; 
             for (int i = 0; i < Red.Length; i++)
             {
                 if (Red[i] == randomNumberRoullete)
@@ -339,9 +339,9 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkBlueNumbers(int randomNumberRoullete)
+        static bool checkBlueNumbers(int randomNumberRoullete) //function for check random is match to the blue numbers
         {
-            int[] Black = { 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35 }; //blue numbers
+            int[] Black = { 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35 }; 
             for (int i = 0; i < Black.Length; i++)
             {
                 if (Black[i] == randomNumberRoullete)
@@ -351,7 +351,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkOddNumbers(int randomNumberRoullete)
+        static bool checkOddNumbers(int randomNumberRoullete) //function to check random numbner is match to the odd numbers
         {
             if (0 != randomNumberRoullete % 2)
             {
@@ -359,7 +359,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkNineteenToThirtysix(int randomNumberRoullete)
+        static bool checkNineteenToThirtysix(int randomNumberRoullete)// function to check random number is in nineteen to thirtysix number 
         {
             if (randomNumberRoullete >= 19 && randomNumberRoullete <= 36)
             {
@@ -367,7 +367,7 @@ namespace roulette_final
             }
             return false;
         }
-        static bool checkZeroDoublezero(int randomNumberRoullete)
+        static bool checkZeroDoublezero(int randomNumberRoullete) // function for if random number is 37 or 38 to check for 0 and 00
         {
             if (randomNumberRoullete == 37 || randomNumberRoullete == 38)
             {
@@ -376,7 +376,7 @@ namespace roulette_final
             return false;
         }
 
-        static int CheckTotalBetMoney(playerSelection[] array, int sizeOfArray)
+        static int CheckTotalBetMoney(playerSelection[] array, int sizeOfArray) //function for player how much money place for bet
         {
             int totalLoss = 0;
             for (int i = 0; i < sizeOfArray; i++)
@@ -411,43 +411,56 @@ namespace roulette_final
                     switch (playerBet)
                     {
                         case "A":
-                            selectionofBet[betNumberIndex].firstRaw = true;
+                            selectionofBet[betNumberIndex].firstRaw = true; 
+                            Console.WriteLine("You put your bet on : 2 to 1(upperraw)");
                             break;
                         case "B":
                             selectionofBet[betNumberIndex].secondRaw = true;
+                            Console.WriteLine("You put your bet on : 2 to 1(middleraw)");
                             break;
                         case "C":
                             selectionofBet[betNumberIndex].thirdRaw = true;
+                            Console.WriteLine("You put your bet on : 2 to 1(loweraw)");
                             break;
                         case "D":
                             selectionofBet[betNumberIndex].firstTwelve = true;
+                            Console.WriteLine("You put your bet on : 1st twelve");
                             break;
                         case "E":
                             selectionofBet[betNumberIndex].secondTwelve = true;
+                            Console.WriteLine("You put your bet on : 2nd twelve");
                             break;
                         case "F":
                             selectionofBet[betNumberIndex].thirdTwelve = true;
+                            Console.WriteLine("You put your bet on : 3rd twelve");
                             break;
                         case "G":
                             selectionofBet[betNumberIndex].oneToEighteen = true;
+                            Console.WriteLine("You put your bet on : 1 to 18");
                             break;
                         case "H":
                             selectionofBet[betNumberIndex].Even = true;
+                            Console.WriteLine("You put your bet on : even");
                             break;
                         case "I":
                             selectionofBet[betNumberIndex].Red = true;
+                            Console.WriteLine("You put your bet on : red");
                             break;
                         case "J":
                             selectionofBet[betNumberIndex].Black = true;
+                            Console.WriteLine("You put your bet on : balck");
                             break;
                         case "K":
                             selectionofBet[betNumberIndex].Odd = true;
+                            Console.WriteLine("You put your bet on : odd");
                             break;
                         case "L":
                             selectionofBet[betNumberIndex].ninteenToThirtysix = true;
+                            Console.WriteLine("You put your bet on : 19 to 36");
                             break;
                         case "M":
                             selectionofBet[betNumberIndex].zeroDoublezero = true;
+                            Console.WriteLine("You put your bet on : 0 or 00");
                             break;
                         case "quit":
                             moreBets = false;
